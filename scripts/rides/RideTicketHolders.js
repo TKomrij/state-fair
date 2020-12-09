@@ -1,17 +1,7 @@
-// const contentTarget = document.querySelector(".rides")
-// const eventHub = document.querySelector("#state-fair")
+const eventHub = document.querySelector("#state-fair")
 
-// export const RideTicketHolders = () => {
-//     eventHub.addEventListener("click", customEvent => {
-//         const userChoiceElement = document.querySelector(".food")
-//         userChoiceElement.innerHTML = customEvent.detail.selectedFood
-//     })
-// }
+eventHub.addEventListener("rideTicketPurchased", (event) => {
+  const userChoiceElement = document.querySelector(".rides")
+  userChoiceElement.innerHTML += event.detail.ticket
+})
 
-// export const TicketBooth = () => {
-//     contentTarget.innerHTML = `
-//         <div class="foodBooth">
-//             <button id="foodTicket">Food Ticket</button>
-//         </div>
-//     `
-// }
