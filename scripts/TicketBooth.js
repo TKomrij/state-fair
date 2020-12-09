@@ -1,35 +1,17 @@
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
-const ticketSelectedEvent = new CustomEvent("ticketSelected", {
-    detail: {
-        selectedTicket: "Ride"
-    }
-})
-eventHub.dispatchEvent(ticketSelectedEvent)
 
-
-eventHub.addEventListener("ticketSelected", customEvent => {
-    contentTarget.innerHTML = customEvent.detail.selectedTicket
-})
-
-
-
-
-
-
-
-// eventHub.addEventListener("click", event => {
-//     if(event.target.id === "rideTicket")
-//     const rideEvent = new CustomEvent("rideTicketPurchased", {
-//         detail: {
-//             ticket: event.target.value
-//         }
-//     })
- 
-//     eventHub.dispatchEvent(rideEvent)
-// })
-
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "rideTicket") {
+        const customEvent = new CustomEvent("rideTicketPurchased", {
+            detail: {
+                ticket: `<div class="person rider"></div>`
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+        } 
+    })
 
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
@@ -40,5 +22,3 @@ export const TicketBooth = () => {
     `
 }
 
-// const userChoiceElement = document.querySelector(".rides")
-// userChoiceElement.innerHTML = event.detail.ticket
